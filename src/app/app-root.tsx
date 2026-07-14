@@ -8,8 +8,10 @@ import { useStore } from '@/hooks/useStore';
 import { localize } from '@deriv-com/translations';
 import './app-root.scss';
 
+// Directly import the dashboard to prevent "blank screen" lazy-loading bugs
+import Dashboard from '../components/dashboard'; 
+
 const AppContent = lazy(() => import('./app-content'));
-const Dashboard = lazy(() => import('../components/dashboard'));
 
 const AppRootLoader = () => {
     return <ChunkLoader message={localize('Loading...')} />;
