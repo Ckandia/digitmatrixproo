@@ -20,7 +20,7 @@ export type PlatformsConfig = {
 export type MenuItemsConfig = {
     as: 'a' | 'button';
     href: string;
-    icon: ReactNode;
+    icon?: ReactNode; // Made icon optional so it doesn't crash if we don't have a specific icon imported
     label: string;
 };
 
@@ -29,7 +29,6 @@ export type TAccount = {
     currency: string;
     icon: React.ReactNode;
     isActive: boolean;
-
     isVirtual: boolean;
     loginid: string;
     token: string;
@@ -39,26 +38,26 @@ export type TAccount = {
 export const platformsConfig: PlatformsConfig[] = [
     {
         active: false,
-        buttonIcon: <DerivTraderLogo height={25} width={114.97} />,
+        buttonIcon: ,
         description: localize('A whole new trading experience on a powerful yet easy to use platform.'),
         href: standalone_routes.trade,
-        icon: <DerivTraderLogo height={32} width={148} />,
+        icon: ,
         showInEU: true,
     },
     {
         active: true,
-        buttonIcon: <DerivBotLogo height={25} width={94} />,
+        buttonIcon: ,
         description: localize('Automated trading at your fingertips. No coding needed.'),
         href: standalone_routes.bot,
-        icon: <DerivBotLogo height={32} width={121} />,
+        icon: ,
         showInEU: false,
     },
     {
         active: false,
-        buttonIcon: <SmarttraderLogo height={24} width={115} />,
+        buttonIcon: ,
         description: localize('Trade the world’s markets with our popular user-friendly platform.'),
         href: standalone_routes.smarttrader,
-        icon: <SmarttraderLogo height={32} width={153} />,
+        icon: ,
         showInEU: false,
     },
 ];
@@ -66,25 +65,43 @@ export const platformsConfig: PlatformsConfig[] = [
 export const TRADERS_HUB_LINK_CONFIG = {
     as: 'a',
     href: standalone_routes.traders_hub,
-    icon: <TradershubLogo iconSize='xs' />,
+    icon: ,
     label: 'Home',
 };
 
 // ========================================
-// MENU ITEMS CONFIGURATION PLACEHOLDER
+// DIGIT MATRIX PRO CUSTOM MENU TABS
 // ========================================
-//
-// Add your custom menu items here for the desktop header.
-//
-// EXAMPLE:
-// export const MenuItems: MenuItemsConfig[] = [
-//     {
-//         as: 'a',
-//         href: '/your-page',
-//         icon: <YourIcon />,
-//         label: localize('Your Menu Item'),
-//     },
-// ];
-//
-// Empty by default for white-labeling
-export const MenuItems: MenuItemsConfig[] = [];
+
+export const MenuItems: MenuItemsConfig[] = [
+    {
+        as: 'a',
+        href: '/dashboard',
+        label: localize('Dashboard'),
+    },
+    {
+        as: 'a',
+        href: '/bot-builder',
+        label: localize('Bot Builder'),
+    },
+    {
+        as: 'a',
+        href: '/chart',
+        label: localize('Chart'),
+    },
+    {
+        as: 'a',
+        href: '/tutorial',
+        label: localize('Tutorial'),
+    },
+    {
+        as: 'a',
+        href: '/custom-strategy',
+        label: localize('My Custom Strategy'),
+    },
+    {
+        as: 'a',
+        href: '/digit-analysis',
+        label: localize('Digit Analysis Tool'),
+    },
+];
