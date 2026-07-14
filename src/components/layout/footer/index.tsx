@@ -27,37 +27,39 @@ const Footer = () => {
 
     const openLanguageSettingModal = () => showModal('DesktopLanguagesModal');
     return (
-        <footer className='app-footer'>
-            <FullScreen />
-            {isAuthorized && <LogoutFooter />}
+        
+            {/* --- DIGIT MATRIX PRO DISCLAIMER --- */}
+            
+                Digit Matrix Pro | {localize('Powered by Deriv API')}
+            
+            
+            {/* ----------------------------------- */}
+
+            
+            {isAuthorized && }
             {/* [AI] Conditionally render language settings based on brand config */}
             {enableLanguageSettings && (
                 <>
-                    <LanguageSettings openLanguageSettingModal={openLanguageSettingModal} />
-                    <div className='app-footer__vertical-line' />
-                </>
+                    
+                    
+                
             )}
             {/* [/AI] */}
             {/* [AI] Conditionally render theme toggle based on brand config */}
             {enableThemeToggle && (
                 <>
-                    <ChangeTheme />
-                    <div className='app-footer__vertical-line' />
-                </>
+                    
+                    
+                
             )}
             {/* [/AI] */}
-            <ServerTime />
-            <div className='app-footer__vertical-line' />
-            <NetworkStatus />
+            
+            
+            
 
             {/* [AI] Only show language modal if language settings are enabled */}
             {enableLanguageSettings && isModalOpenFor('DesktopLanguagesModal') && (
-                <DesktopLanguagesModal
-                    headerTitle={localize('Select Language')}
-                    isModalOpen
-                    languages={FILTERED_LANGUAGES}
-                    onClose={hideModal}
-                    onLanguageSwitch={code => {
+                 {
                         try {
                             switchLanguage(code);
                             hideModal();
@@ -74,7 +76,7 @@ const Footer = () => {
                 />
             )}
             {/* [/AI] */}
-        </footer>
+        
     );
 };
 
